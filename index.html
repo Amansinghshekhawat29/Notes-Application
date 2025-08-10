@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>📝 Premium Notes</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Animated gradient background layers -->
+  <div class="bg-layer"></div>
+  <div class="bg-overlay"></div>
+
+  <!-- Theme toggle -->
+  <button id="themeToggle" aria-label="Toggle theme">
+    <span class="icon sun" aria-hidden>☀️</span>
+    <span class="icon moon" aria-hidden>🌙</span>
+  </button>
+
+  <main class="app" role="main">
+    <header class="top">
+      <div class="logo">
+        <div class="note-emoji">📝</div>
+        <h1>My Personal Notes</h1>
+      </div>
+
+      <div class="search-wrap">
+        <input id="searchInput" type="search" placeholder="🔍 Search notes, tags or content..." />
+      </div>
+    </header>
+
+    <section class="composer glass">
+      <div class="composer-row">
+        <input id="noteTitle" type="text" placeholder="Title" autocomplete="off" />
+        <input id="noteTags" type="text" placeholder="Tags (comma separated) — e.g. ideas,work" />
+      </div>
+
+      <textarea id="noteContent" placeholder="Write your note..." rows="6"></textarea>
+
+      <div class="actions">
+        <button id="addBtn" class="btn primary">➕ Add Note</button>
+        <button id="exportBtn" class="btn secondary">📤 Export Notes</button>
+        <button id="clearBtn" class="btn ghost">🧹 Clear All</button>
+      </div>
+    </section>
+
+    <section id="notesList" class="notes-grid" aria-live="polite">
+      <!-- cards injected here -->
+    </section>
+  </main>
+
+  <!-- Edit modal (hidden by default) -->
+  <div id="editModal" class="modal" aria-hidden="true">
+    <div class="modal-card glass">
+      <h3>Edit Note</h3>
+      <input id="editTitle" />
+      <input id="editTags" />
+      <textarea id="editContent" rows="6"></textarea>
+      <div class="actions">
+        <button id="saveEdit" class="btn primary">Save</button>
+        <button id="cancelEdit" class="btn ghost">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- small canvas for confetti -->
+  <canvas id="confettiCanvas" class="confetti"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>
